@@ -22,3 +22,38 @@ Optional recursive mode:
 ```bash
 python remove_backgrounds.py <input_folder> <output_folder> --recursive
 ```
+
+---
+
+Python script: `compare_excel_images.py`
+
+This script compares expected image file names from Excel with files that exist
+in your converted output folder (for example: `Media-without`).
+
+Expected Excel format:
+- Column A: product name
+- Column C: text containing media entries with `url=...`
+
+## Install for Excel comparison
+
+```bash
+pip install openpyxl
+```
+
+## Usage
+
+```bash
+python compare_excel_images.py <excel_file.xlsx> Media-without
+```
+
+Optional flags:
+
+```bash
+python compare_excel_images.py <excel_file.xlsx> Media-without --sheet "Sheet1" --report missing_images_report.csv
+```
+
+If the first row is not headers:
+
+```bash
+python compare_excel_images.py <excel_file.xlsx> Media-without --no-header
+```
